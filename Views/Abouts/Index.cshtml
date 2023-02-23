@@ -1,0 +1,134 @@
+﻿@model IEnumerable<CodesWeaverNew.Models.About>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Discription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Boolet1Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Boolet1TitleDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Boolet2Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Boolet2TitleDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Boolet3Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Boolet3TitleDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Boolet3TitleDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MissionDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VissionDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image3)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.willshown)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Discription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Boolet1Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Boolet1TitleDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Boolet2Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Boolet2TitleDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Boolet3Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Boolet3TitleDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MissionDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VissionDescription)
+            </td>
+         
+            <td>
+                @{
+                    if (item.Image != null)
+                    {
+                        string b64 = Convert.ToBase64String(item.Image);
+                        var pimage = String.Format("data:image/png; base64, {0}", b64);
+                        <img src="@pimage" width="100px;" alt="No Image" />
+                    }
+                }
+            </td>
+            <td>
+                @{
+                    if (item.Image2 != null)
+                    {
+                        string b64 = Convert.ToBase64String(item.Image2);
+                        var pimage2 = String.Format("data:image2/png; base64, {0}", b64);
+                        <img src="@pimage2" width="100px;" alt="No Image" />
+                    }
+                }
+            </td>
+            <td>
+                @{
+                    if (item.Image3 != null)
+                    {
+                        string b64 = Convert.ToBase64String(item.Image3);
+                        var pimage3 = String.Format("data:image3/png; base64, {0}", b64);
+                        <img src="@pimage3" width="100px;" alt="No Image" />
+                    }
+                }
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.willshown)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
